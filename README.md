@@ -4,20 +4,13 @@ A module that removes both MySQL and ElasticSearch from Magento. This is experim
 ## Installation via composer
 Installation of this module by copying things to `app/code` will **not** work: The composer `replace` will not be applied and the original namespaces `Magento\Search` and `Magento\CatalogSearch` will not be remapped to this extension. It does not work. Use composer instead.
 
-Instead, copy the extension to some kind of other folder in your Magento root, like `package-source`, and use this folder as a composer repository:
 
-    mkdir package-source/
-    cd package-source/
-    git clone git@github.com:yireo/Yireo_RemoveSearch.git
-    cd -
-    composer config repositories.yireo-removesearch path package-source/Yireo_RemoveSearch
+Instead, first add the git repository to your composer project:
 
-First, register this module in your `composer.json` file:
+    composer config repositories.yireo-removesearch vcs git@github.com:yireo/Yireo_RemoveSearch.git 
 
-    composer require yireo/magento2-remove-search --no-update
-
-Next, open up the `composer.json` file and add the following manually to your configuration:
-
+Second, open up the `composer.json` file and add the following manually to your configuration:
+        
     "replace": {
         "magento/module-advanced-search": "*",
         "magento/module-catalog-search": "*",
@@ -31,11 +24,15 @@ Next, open up the `composer.json` file and add the following manually to your co
         "magento/module-elasticsearch-catalog-permissions": "*"
     }
 
-Next, run:
+Third, To uninstall the search related modules run:
 
     composer update
+ 
+Finally, to register and install this module in your `composer.json` file, run:
 
-Unforunately, this might work or it might not. If this fails, do the following (and beware of its consequences):
+    composer require yireo/magento2-remove-search:dev-master
+
+Unfortunately, this might work or it might not. If this fails, do the following (and beware of its consequences):
 
     rm -r vendor/ composer.lock
     composer install
