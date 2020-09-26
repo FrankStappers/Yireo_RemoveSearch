@@ -27,7 +27,8 @@ Next, open up the `composer.json` file and add the following manually to your co
         "magento/module-inventory-catalog-search": "*",
         "magento/module-inventory-elasticsearch": "*",
         "magento/module-search": "*",
-        "elasticsearch/elasticsearch": "*"
+        "elasticsearch/elasticsearch": "*",
+        "magento/module-elasticsearch-catalog-permissions": "*"
     }
 
 Next, run:
