@@ -24,9 +24,9 @@ Second, open up the `composer.json` file and add the following manually to your 
         "magento/module-elasticsearch-catalog-permissions": "*"
     }
 
-Third, To uninstall the search related modules run:
+Third, to uninstall the search related modules run:
 
-    composer update
+    composer install
  
 Finally, to register and install this module in your `composer.json` file, run:
 
